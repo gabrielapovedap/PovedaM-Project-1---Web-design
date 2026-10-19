@@ -1,0 +1,1255 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Intel+One+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+// VARIABLES
+
+
+// Colors
+$navy: #192666;
+$cream: #E8E4C1;
+$coral: #FF9574;
+$white: #FFFFFF;
+
+// Fonts
+$font-heading: 'Bebas Neue', sans-serif;
+$font-subheading: 'Source Sans 3', sans-serif;
+$font-body: 'Intel One Mono', monospace;
+
+// STYLES
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: $white;
+  color: $navy;
+  font-family: $font-body;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-heading;
+  font-weight: 400;
+}
+
+h4,
+h5,
+h6 {
+  font-family: $font-subheading;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// BUTTONS
+
+.button {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 100px;
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &--coral {
+    background-color: $coral;
+    color: $navy;
+
+    &:hover {
+      background-color: $cream;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $navy;
+    outline-offset: 4px;
+  }
+}
+
+//MOBILE
+
+// HEADER 
+
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background-color: $white;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+
+    font-family: $font-heading;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 0.85;
+    letter-spacing: 0;
+    color: $navy;
+  }
+
+  //  mobile menu
+  &__toggle {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  // Hamburger icon
+  &__menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    cursor: pointer;
+
+    span:not(.visually-hidden) {
+      display: block;
+      width: 27px;
+      height: 2px;
+      background-color: $navy;
+    }
+  }
+
+  &__toggle:focus-visible + &__menu-button {
+    outline: 2px solid $navy;
+    outline-offset: 4px;
+  }
+
+  // navigation
+  &__nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 22px;
+    padding: 28px 0 12px;
+
+    a {
+      font-family: $font-body;
+      font-size: 13px;
+      transition: color 0.2s ease;
+
+      &:hover,
+      &[aria-current="page"] {
+        color: $coral;
+      }
+    }
+  }
+
+  // Show menu when checkbox is checked
+  &__toggle:checked ~ &__nav {
+    display: flex;
+  }
+}
+
+// HERO SECTION
+
+.hero {
+  position: relative;
+  background-color: $white;
+  color: $navy;
+
+  &__title {
+    margin: 0;
+    padding: 22px 20px 12px;
+
+    font-family: $font-heading;
+    font-size: clamp(72px, 18vw, 120px);
+    font-weight: 400;
+    line-height: 0.9;
+    text-align: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    padding: 28px 24px 48px;
+    text-align: left;
+  }
+
+  &__intro {
+    max-width: 460px;
+    margin: 0 0 24px;
+
+    font-family: $font-body;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+
+// SELECTED WORKS SECTION
+
+.selected-works {
+  padding: 50px 24px;
+}
+
+.section-heading {
+  background-color: $cream;
+  border-radius: 40px;
+  padding: 20px 30px;
+  margin-bottom: 45px;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 48px;
+    margin: 0;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 10px 0 0;
+  }
+}
+
+.book-group {
+  margin-bottom: 55px;
+
+  h3 {
+    font-family: $font-subheading;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+}
+
+.book-list {
+  display: flex;
+  gap: 20px;
+}
+
+.book-card {
+  width: 50%;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .button {
+    padding: 10px 15px;
+    font-size: 11px;
+  }
+}
+
+//CATEGORIES
+
+.categories {
+  padding: 40px 24px 70px;
+
+  &__heading {
+    background-color: #D5D7E2;
+    border-radius: 50px;
+    padding: 20px 30px;
+    margin-bottom: 50px;
+    text-align: center;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: 50px;
+      margin: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+}
+
+.category {
+  h3 {
+    font-family: $font-heading;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0 0 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
+
+  a {
+    color: $coral;
+    font-family: $font-body;
+    font-size: 20px;
+    line-height: 1.7;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+//EXPLORE MORE SECTION
+explore-more {
+  padding: 40px 24px 70px;
+
+  &__books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+    margin-top: 40px;
+  }
+}
+
+.explore-book {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 18px;
+  }
+
+  h3 {
+    font-family: $font-subheading;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+}
+
+//footer
+
+.site-footer {
+  background-color: $navy;
+  color: $white;
+  border-radius: 50px 50px 0 0;
+  padding: 55px 24px 20px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__brand {
+    h2 {
+      font-family: $font-heading;
+      font-size: 65px;
+      font-weight: 400;
+      line-height: 0.85;
+      margin: 0;
+    }
+  }
+
+  &__links {
+    h3 {
+      font-family: $font-subheading;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: $coral;
+      font-family: $font-body;
+      font-size: 13px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 50px;
+    padding-top: 20px;
+
+    p {
+      font-family: $font-body;
+      font-size: 11px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+//PAGE BOOKS & INTER... 
+
+.books-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+
+  .section-heading {
+    h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+  }
+
+  &__series {
+    font-family: $font-heading;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 50px 0 30px;
+  }
+
+  &__more {
+    text-align: center;
+    margin: 50px 0 70px;
+
+    .button {
+      padding: 15px 45px;
+      font-size: 15px;
+    }
+  }
+}
+
+// BOOK DETAILS
+
+.book-detail {
+  margin-bottom: 55px;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+
+  &__content {
+    h3 {
+      display: none;
+    }
+  }
+
+  &__description {
+    display: none;
+  }
+
+  &__more {
+    summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    p {
+      font-family: $font-body;
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 20px auto 0;
+      max-width: 450px;
+      text-align: left;
+    }
+  }
+}
+
+//NEWS & EVENTS PAGE
+
+.news-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 24px;
+
+  .section-heading {
+    h1, h2 {
+      font-size: 50px;
+      margin: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 40px;
+    margin: 50px 0 30px;
+  }
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 80px;
+}
+
+.news-card {
+  text-align: center;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin: 0 0 10px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  &__date {
+    color: $coral;
+    font-weight: 600;
+  }
+}
+
+.news-event {
+  padding: 30px 10px 80px;
+  text-align: center;
+
+  h3 {
+    font-size: 35px;
+    margin: 0 0 15px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 25px;
+  }
+}
+
+//ABOUT PAGE
+
+.about-hero {
+
+  &__mobile-title {
+    text-align: center;
+    font-family: $font-heading;
+    font-size: 48px;
+    color: $navy;
+    margin: 25px 0 10px;
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__desktop-title {
+    display: none;
+  }
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.about-section {
+  margin-bottom: 75px;
+
+  h2 {
+    font-family: $font-subheading;
+    font-size: 28px;
+    line-height: 1.25;
+    color: $coral;
+    text-align: center;
+    margin: 0 0 35px;
+  }
+
+  p, li {
+    font-family: $font-body;
+    font-size: 14px;
+    line-height: 1.8;
+    color: $navy;
+  }
+
+  &__description {
+    display: none;
+  }
+}
+
+// STATISTICS
+
+.about-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 35px 0;
+  text-align: center;
+
+  div {
+    flex: 1;
+  }
+
+  strong {
+    display: block;
+    font-family: $font-body;
+    font-size: 27px;
+    color: $navy;
+  }
+
+  span {
+    display: block;
+    font-family: $font-body;
+    font-size: 12px;
+    font-weight: 600;
+    color: $navy;
+    line-height: 1.6;
+  }
+
+  &--final {
+    display: none;
+  }
+}
+
+// MOBILE MORE BUTTONS
+
+.about-extra {
+  text-align: right;
+  margin-top: 30px;
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    min-width: 170px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  &__text {
+    margin-top: 25px;
+    text-align: left;
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: $coral;
+      font-family: $font-subheading;
+      margin-top: 25px;
+    }
+  }
+}
+
+// contenido extra
+
+.about-additional {
+  display: none;
+}
+
+.about-additional-mobile {
+  margin: 60px 0 80px;
+  text-align: center;
+}
+
+//AUDIOBOOKS PAGE
+
+.audiobooks-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+
+  .section-heading {
+    h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+  }
+
+  &__more {
+    text-align: center;
+    margin: 60px 0 80px;
+
+    .button {
+      padding: 15px 45px;
+    }
+  }
+}
+
+// AUDIOBOOK LIST
+
+.audiobooks-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 65px;
+  margin-top: 50px;
+}
+
+// INDIVIDUAL AUDIOBOOK
+
+.audiobook {
+  width: 100%;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 30px;
+    font-weight: 400;
+    color: $navy;
+    margin: 0 0 10px;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .button {
+    display: inline-block;
+  }
+}
+
+
+
+// DESKTOP MEDIA
+
+@media (min-width: 900px) {
+
+  // HEADER 
+
+  .site-header {
+
+    &__inner {
+      padding: 30px 48px;
+      flex-wrap: nowrap;
+    }
+
+    &__logo {
+      font-size: 46px;
+    }
+
+    &__menu-button {
+      display: none;
+    }
+
+    &__nav {
+      display: flex;
+      width: auto;
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      padding: 0;
+
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+
+
+  // HERO 
+
+  .hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+
+    &__image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(10, 17, 45, 0.65),
+          rgba(10, 17, 45, 0.05) 75%
+        );
+      }
+    }
+
+    &__title {
+      position: absolute;
+      z-index: 2;
+      top: 25px;
+      left: 0;
+      width: 100%;
+      padding: 0 24px;
+
+      color: $white;
+      font-size: clamp(120px, 16vw, 240px);
+      line-height: 1;
+    }
+
+    &__content {
+      position: relative;
+      z-index: 2;
+      width: 50%;
+      max-width: 600px;
+      padding: 180px 0 60px 7%;
+      color: $white;
+    }
+
+    &__intro {
+      font-size: 14px;
+      line-height: 1.9;
+    }
+  }
+
+  //SELECTED WORKS SELCTION
+.selected-works {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 48px;
+  }
+
+  .section-heading {
+    display:flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    padding: 30px 50px;
+
+    h2 {
+      font-size: 75px;
+    }
+
+    p {
+      width: 40%;
+      margin: 0;
+    }
+  }
+
+  .book-group {
+    margin-bottom: 70px;
+
+    h3 {
+      font-size: 32px;
+    }
+  }
+
+  .book-list {
+    gap: 40px;
+  }
+
+  .book-card {
+    width: 220px;
+  }
+
+
+//CATEGORIES
+ .categories {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 70px 48px 110px;
+
+    &__heading {
+      text-align: left;
+      padding: 25px 50px;
+      margin-bottom: 75px;
+
+      h2 {
+        font-size: 75px;
+      }
+    }
+
+    &__container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 45px;
+    }
+  }
+
+  .category {
+    flex: 1;
+
+    h3 {
+      font-size: 50px;
+    }
+  }
+//ECPLORE MORE SECTION
+  .explore-more {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 70px 48px 110px;
+
+    &__books {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  }
+
+  .explore-book {
+    width: 30%;
+    max-width: 300px;
+  }
+
+//FOOTER SCTION
+   .site-footer {
+    border-radius: 90px 90px 0 0;
+    padding: 80px 60px 25px;
+
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    &__brand {
+      flex: 1;
+
+      h2 {
+        font-size: 100px;
+      }
+    }
+
+    &__links {
+      flex: 1;
+    }
+
+    &__bottom {
+      max-width: 1200px;
+      margin: 70px auto 0;
+    }
+  }
+
+//BOOK & INTERVIEWS
+
+.books-page {
+    padding: 70px 48px;
+
+    .section-heading {
+      h1 {
+        font-size: 80px;
+      }
+    }
+
+    &__series {
+      font-size: 50px;
+      margin-bottom: 45px;
+    }
+
+    &__more {
+      margin: 60px 0 90px;
+    }
+  }
+
+  .book-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    margin-bottom: 70px;
+    text-align: left;
+
+    img {
+      width: 220px;
+      margin: 0;
+    }
+
+    &__content {
+      flex: 1;
+
+      h3 {
+        display: block;
+        font-family: $font-heading;
+        font-size: 38px;
+        font-weight: 400;
+        margin: 0 0 15px;
+      }
+    }
+
+    &__description {
+      display: block;
+      font-family: $font-body;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    &__more {
+      display: none;
+    }
+  }
+
+//NEWS&EVENTS PAGE 
+
+.news-page {
+    padding: 70px 48px;
+
+    .section-heading {
+      h1, h2 {
+        font-size: 75px;
+      }
+    }
+
+    &__subtitle {
+      font-size: 50px;
+    }
+  }
+
+  .news-list {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
+  }
+
+  .news-card {
+    width: 33.33%;
+
+    img {
+      height: 340px;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .news-event {
+    padding: 50px 20px 100px;
+  }
+
+//ABOUT PAGE
+.about-hero {
+
+    &__mobile-title {
+      display: none;
+    }
+
+    &__image {
+      img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        object-position: center 35%;
+      }
+    }
+
+    &__desktop-title {
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 8%;
+      font-family: $font-heading;
+      font-size: 55px;
+      font-weight: 400;
+      color: $white;
+      margin: 0;
+    }
+  }
+
+  .about-content {
+    padding: 50px 60px 80px;
+  }
+
+  .about-section {
+    margin-bottom: 65px;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p, li {
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    &__description {
+      display: block;
+    }
+  }
+
+  .about-intro {
+
+    &__title {
+      display: none;
+    }
+  }
+
+  .about-stats {
+    background-color: #D2D5E0;
+    border-radius: 100px;
+    padding: 20px 40px;
+    margin: 35px -60px;
+
+    strong {
+      font-size: 22px;
+    }
+
+    span {
+      font-size: 11px;
+    }
+
+    &--final {
+      display: flex;
+      margin-top: 50px;
+    }
+  }
+
+  .about-extra {
+    display: none;
+  }
+
+  .about-additional {
+    display: block;
+
+    h2 {
+      margin: 50px 0 25px;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+  }
+
+  .about-additional-mobile {
+    display: none;
+  }
+
+//AUDIOBOOKS PAGE
+
+.audiobooks-page {
+    padding: 70px 48px;
+
+    .section-heading {
+      h1 {
+        font-size: 80px;
+      }
+    }
+
+    &__more {
+      text-align: center;
+      margin: 80px 0 100px;
+    }
+  }
+
+  // TWO-COLUMN GRID
+
+  .audiobooks-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px 50px;
+    align-items: start;
+    margin-top: 70px;
+  }
+
+  // AUDIOBOOK CARDS
+
+  .audiobook {
+    text-align: center;
+
+    img {
+      width: 240px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+}
+  
+
+
+
+
+
